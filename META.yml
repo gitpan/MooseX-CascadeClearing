@@ -1,6 +1,7 @@
 ---
 abstract: 'Cascade clearer actions across attributes '
 author:
+  - 'Chris Weyl, C<< <cweyl at alumni.drew.edu> >>'
   - 'Chris Weyl <cweyl@alumni.drew.edu>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
@@ -8,7 +9,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.91'
+generated_by: 'Module::Install version 1.00'
 license: lgpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -22,14 +23,14 @@ no_index:
 provides:
   MooseX::CascadeClearing:
     file: lib/MooseX/CascadeClearing.pm
-    version: 0.02
+    version: 0.03
   MooseX::CascadeClearing::Role::Meta::Attribute:
     file: lib/MooseX/CascadeClearing.pm
 requires:
-  Moose: 0.88
+  Moose: 0.94
   namespace::autoclean: 0.08
 resources:
   homepage: http://github.com/RsrchBoy/moosex-cascadeclearing/tree
   license: http://opensource.org/licenses/lgpl-license.php
   repository: git://github.com/RsrchBoy/moosex-cascadeclearing.git
-version: 0.02
+version: 0.03
