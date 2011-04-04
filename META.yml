@@ -23,7 +23,7 @@ no_index:
 provides:
   MooseX::CascadeClearing:
     file: lib/MooseX/CascadeClearing.pm
-    version: 0.03
+    version: 0.04
   MooseX::CascadeClearing::Role::Meta::Attribute:
     file: lib/MooseX/CascadeClearing.pm
 requires:
@@ -33,4 +33,4 @@ resources:
   homepage: http://github.com/RsrchBoy/moosex-cascadeclearing/tree
   license: http://opensource.org/licenses/lgpl-license.php
   repository: git://github.com/RsrchBoy/moosex-cascadeclearing.git
-version: 0.03
+version: 0.04

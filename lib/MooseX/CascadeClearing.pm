@@ -24,7 +24,7 @@ Version 0.02
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 
 =head1 SYNOPSIS
@@ -161,13 +161,24 @@ sub init_meta {
     my $for_class = $options{for_class};
 
     ### in init_meta: $options{for_class} 
-    Moose->init_meta(%options);
+    Moose->init_meta(%options)
+        unless Class::MOP::class_of($for_class);
+
+    my %metaroles = (
+        class_metaroles => {
+            attribute => ['MooseX::CascadeClearing::Role::Meta::Attribute'],
+        }
+    );
+
+    $metaroles{role_metaroles} = {
+        applied_attribute =>
+            ['MooseX::CascadeClearing::Role::Meta::Attribute'],
+        }
+        if $Moose::VERSION >= 1.9900;
 
     Moose::Util::MetaRole::apply_metaroles(
         for => $options{for_class},
-        class_metaroles => {
-            attribute => ['MooseX::CascadeClearing::Role::Meta::Attribute'],
-        },
+        %metaroles,
     );
 
     ### applied traits, returning...
