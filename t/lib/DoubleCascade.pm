@@ -1,6 +1,15 @@
+#
+# This file is part of MooseX-CascadeClearing
+#
+# This software is Copyright (c) 2012 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 #############################################################################
 #
-# Test using CascadeClear traits... 
+# Test using CascadeClear traits...
 #
 # Author:  Chris Weyl (cpan:RSRCHBOY), <cweyl@alumni.drew.edu>
 # Company: No company, personal work
@@ -134,7 +143,7 @@ The initial template usually just has:
 
 There are no known bugs in this module.
 
-Please report problems to Chris Weyl <cweyl@alumni.drew.edu>, or (preferred) 
+Please report problems to Chris Weyl <cweyl@alumni.drew.edu>, or (preferred)
 to this package's RT tracker at E<bug-PACKAGE@rt.cpan.org>.
 
 Patches are welcome.
@@ -159,7 +168,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the 
+License along with this library; if not, write to the
 
     Free Software Foundation, Inc.
     59 Temple Place, Suite 330

@@ -7,9 +7,9 @@
 #
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
-package SingleCascade;
+package CascadeRole;
 
-use Moose;
+use Moose::Role;
 use MooseX::CascadeClearing;
 
 has master => (
@@ -40,6 +40,5 @@ sub _build_sub3 { shift->master . "3" }
 
 sub _build_nosub { 'lazy!' }
 
-#__PACKAGE__->meta->make_immutable;
 1;
 

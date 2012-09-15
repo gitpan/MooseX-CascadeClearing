@@ -1,27 +1,63 @@
-use inc::Module::Install;
 
-githubmeta;
+use strict;
+use warnings;
 
-my $main = 'lib/MooseX/CascadeClearing.pm';
+use 5.006;
 
-name     'MooseX-CascadeClearing';
-all_from $main;
-author   q{Chris Weyl <cweyl@alumni.drew.edu>};
-license  'lgpl';
+use ExtUtils::MakeMaker 6.30;
 
-readme_from $main;
-readme_markdown_from $main;
 
-no_index 'directory' => 'xt';
 
-requires 'Moose'                => '0.94';
-requires 'namespace::autoclean' => '0.08';
+my %WriteMakefileArgs = (
+  "ABSTRACT" => "Cascade clearer actions across attributes",
+  "AUTHOR" => "Chris Weyl <cweyl\@alumni.drew.edu>",
+  "BUILD_REQUIRES" => {
+    "File::Find" => 0,
+    "File::Temp" => 0,
+    "FindBin" => 0,
+    "Test::More" => "0.88"
+  },
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
+  },
+  "DISTNAME" => "MooseX-CascadeClearing",
+  "EXE_FILES" => [],
+  "LICENSE" => "lgpl",
+  "NAME" => "MooseX::CascadeClearing",
+  "PREREQ_PM" => {
+    "Carp" => 0,
+    "Moose" => 0,
+    "Moose::Exporter" => 0,
+    "Moose::Role" => 0,
+    "Moose::Util::MetaRole" => 0,
+    "namespace::autoclean" => 0,
+    "strict" => 0,
+    "warnings" => 0
+  },
+  "VERSION" => "0.05",
+  "test" => {
+    "TESTS" => "t/*.t"
+  }
+);
 
-test_requires 'Test::More';
 
-extra_tests;
-auto_provides;
-auto_install;
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
 
-WriteAll;
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
 

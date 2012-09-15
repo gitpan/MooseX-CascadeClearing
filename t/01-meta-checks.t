@@ -1,4 +1,13 @@
 #!/usr/bin/env perl
+#
+# This file is part of MooseX-CascadeClearing
+#
+# This software is Copyright (c) 2012 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 
 use strict;
 use warnings;
@@ -6,7 +15,7 @@ use warnings;
 use FindBin;
 use lib "$FindBin::Bin/lib/";
 
-use Test::More tests => 6; 
+use Test::More tests => 6;
 
 use SingleCascade;
 
